@@ -1,0 +1,27 @@
+[
+  {
+    "ageCondition": "Взрослый",
+    "additionalInfo": "",
+    "price" : 64386
+  },
+  {
+    "ageCondition": "Взрослый",
+    "additionalInfo": "с пропиской в Камчатском крае",
+    "price" : 18000
+  },
+  {
+    "ageCondition": "Ребенок 2-12 лет",
+    "additionalInfo": "гражданин РФ",
+    "price" : 9000
+  },
+  {
+    "ageCondition": "Ребенок 2-12 лет",
+    "additionalInfo": "гражданин иностранного государства",
+    "price" : 32193
+  },
+  {
+    "ageCondition": "Ребенок до 2 лет",
+    "additionalInfo": "без места",
+    "price" : 0
+  }
+]
