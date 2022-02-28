@@ -10,42 +10,39 @@ part 'calculator_event.dart';
 part 'calculator_state.dart';
 
 class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
-  CalculatorBloc({required this.tariffRepository})
-      : super(CalculatorLoading()) {
+  final TariffRepository tariffRepository;
+
+  CalculatorBloc({required this.tariffRepository}) : super(CalculatorLoading()) {
     on<CalculatorStarted>(_onStarted);
     on<CalculatorItemAdded>(_onItemAdded);
     on<CalculatorItemRemoved>(_onItemRemoved);
   }
 
-  final TariffRepository tariffRepository;
-
-  void _onStarted(
-      CalculatorStarted event, Emitter<CalculatorState> emit) async {
+  void _onStarted(CalculatorStarted event, Emitter<CalculatorState> emit) async {
     emit(CalculatorLoading());
     try {
-      final items = await tariffRepository.loadCalculatorItems();
+      final List<Tariff> items = await tariffRepository.loadCalculatorItems();
       emit(CalculatorLoaded(calculator: Calculator(items: [...items])));
     } catch (_) {
       emit(CalculatorError());
     }
   }
 
- Future<bool> isGrownOnBoard() async {
+  Future<bool> isGrownOnBoard() async {
     return await tariffRepository.isGrownOnBoard();
- }
+  }
 
-  void _onItemAdded(
-      CalculatorItemAdded event, Emitter<CalculatorState> emit) async {
+  void _onItemAdded(CalculatorItemAdded event, Emitter<CalculatorState> emit) async {
     final state = this.state;
     if (state is CalculatorLoaded) {
       try {
-        final bool _grownOnBoard =  await isGrownOnBoard();
-
-        if(event.item.ageCondition != AppStrings.babyUnder2YearsOld || _grownOnBoard){
+        if (event.item.ageCondition != AppStrings.babyUnder2YearsOld || await isGrownOnBoard()) {
           tariffRepository.addItemToCalculator(event.item);
-          emit(CalculatorLoaded(
-              calculator:
-              Calculator(items: [...state.calculator.items, event.item])));
+          emit(
+            CalculatorLoaded(
+              calculator: Calculator(items: [...state.calculator.items, event.item]),
+            ),
+          );
         }
       } catch (_) {
         emit(CalculatorError());
@@ -53,8 +50,7 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
     }
   }
 
-  void _onItemRemoved(
-      CalculatorItemRemoved event, Emitter<CalculatorState> emit) {
+  void _onItemRemoved(CalculatorItemRemoved event, Emitter<CalculatorState> emit) {
     final state = this.state;
     if (state is CalculatorLoaded) {
       try {

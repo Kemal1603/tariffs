@@ -4,7 +4,6 @@ import 'package:test_task2/app.dart';
 import 'package:test_task2/simple_bloc_observer.dart';
 import 'package:test_task2/tariff_repository.dart';
 
-
 void main() {
   BlocOverrides.runZoned(
     () => runApp(App(tariffRepository: TariffRepository())),

@@ -10,9 +10,9 @@ abstract class CatalogState extends Equatable {
 class CatalogLoading extends CatalogState {}
 
 class CatalogLoaded extends CatalogState {
-  const CatalogLoaded(this.catalog);
-
   final Catalog catalog;
+
+  const CatalogLoaded(this.catalog);
 
   @override
   List<Object> get props => [catalog];

@@ -15,17 +15,13 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => CatalogBloc(
-            tariffRepository: tariffRepository,
-          )..add(CatalogStarted()),
+          create: (_) => CatalogBloc(tariffRepository: tariffRepository)..add(CatalogStarted()),
         ),
         BlocProvider(
-          create: (_) => CalculatorBloc(
-            tariffRepository: tariffRepository,
-          )..add(CalculatorStarted()),
+          create: (_) => CalculatorBloc(tariffRepository: tariffRepository)..add(CalculatorStarted()),
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Flutter Bloc Tariff Calculator',
         home: HomePage(),
       ),

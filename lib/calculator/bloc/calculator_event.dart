@@ -11,18 +11,18 @@ class CalculatorStarted extends CalculatorEvent {
 }
 
 class CalculatorItemAdded extends CalculatorEvent {
-  const CalculatorItemAdded(this.item);
-
   final Tariff item;
+
+  const CalculatorItemAdded(this.item);
 
   @override
   List<Object> get props => [item];
 }
 
 class CalculatorItemRemoved extends CalculatorEvent {
-  const CalculatorItemRemoved(this.item);
-
   final Tariff item;
+
+  const CalculatorItemRemoved(this.item);
 
   @override
   List<Object> get props => [item];

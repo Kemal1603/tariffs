@@ -34,16 +34,15 @@ abstract class AppStrings {
     }
   }
 
-  static String processTotalPassengersText(int passengersQuantity){
-    if(passengersQuantity == 0){
+  static String processTotalPassengersText(int passengersQuantity) {
+    if (passengersQuantity == 0) {
       return '0';
-    }else if(passengersQuantity == 1){
+    } else if (passengersQuantity == 1) {
       return '$passengersQuantity пассажир';
-    }else if(passengersQuantity > 1 && passengersQuantity < 5){
+    } else if (passengersQuantity > 1 && passengersQuantity < 5) {
       return '$passengersQuantity пассажира';
-    }else{
+    } else {
       return '$passengersQuantity пассажиров';
     }
   }
-
 }

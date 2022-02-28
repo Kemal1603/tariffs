@@ -11,9 +11,9 @@ class CalculatorLoading extends CalculatorState {
 }
 
 class CalculatorLoaded extends CalculatorState {
-  const CalculatorLoaded({this.calculator = const Calculator()});
-
   final Calculator calculator;
+
+  const CalculatorLoaded({this.calculator = const Calculator()});
 
   @override
   List<Object> get props => [calculator];

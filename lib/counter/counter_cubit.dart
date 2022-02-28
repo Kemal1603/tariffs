@@ -5,9 +5,10 @@ import 'package:test_task2/utils/app_strings.dart';
 class CounterCubit extends Cubit<int> {
   /// {@macro counter_cubit}
   CounterCubit() : super(0);
+
   /// Add 1 to the current state.
   void increment({required Tariff item, required bool grownOnBoard}) async {
-    if(grownOnBoard || item.ageCondition != AppStrings.babyUnder2YearsOld) {
+    if (grownOnBoard || item.ageCondition != AppStrings.babyUnder2YearsOld) {
       emit(state + 1);
     }
   }

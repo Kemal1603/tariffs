@@ -4,7 +4,6 @@ import 'package:test_task2/utils/app_colors.dart';
 import 'package:test_task2/utils/app_icons.dart';
 import 'package:test_task2/utils/app_strings.dart';
 
-
 class WarningRow extends StatelessWidget {
   final String additionalInfo;
 
@@ -12,7 +11,6 @@ class WarningRow extends StatelessWidget {
     Key? key,
     required this.additionalInfo,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +21,10 @@ class WarningRow extends StatelessWidget {
         children: [
           SvgPicture.asset(AppIcons.warning),
           const SizedBox(width: 8),
-          Text(AppStrings.processWarningMessage(additionalInfo),
-              style: const TextStyle(color: AppColors.mainGrey,))
+          Text(
+            AppStrings.processWarningMessage(additionalInfo),
+            style: const TextStyle(color: AppColors.mainGrey),
+          )
         ],
       ),
     );

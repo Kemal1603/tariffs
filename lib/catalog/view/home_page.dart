@@ -6,7 +6,6 @@ import 'package:test_task2/utils/app_strings.dart';
 
 import 'catalog_page.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -26,13 +25,17 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Text(AppStrings.tariffs,
-                      style: TextStyle(
-                          color: AppColors.mainBlue,
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold))),
-               Expanded(child:  CatalogPage()),
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: Text(
+                  AppStrings.tariffs,
+                  style: TextStyle(
+                    color: AppColors.mainBlue,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const Expanded(child: CatalogPage()),
             ],
           ),
         ),

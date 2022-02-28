@@ -5,6 +5,7 @@ import 'package:test_task2/utils/app_strings.dart';
 class TotalCost extends StatelessWidget {
   final int totalPassengersQuantity;
   final int totalAmount;
+
   const TotalCost({
     Key? key,
     required this.totalPassengersQuantity,

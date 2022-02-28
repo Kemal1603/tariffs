@@ -5,28 +5,18 @@ abstract class AppColors {
   static const Color mainGrey = Color(0xFF768899);
   static const Color mainContainerBackgroundColor = Color(0xFFEEF6FE);
 
-   static Color mainContainerBorder(int quantity){
-    if(quantity > 0){
-      return mainBlue;
-    } else {
-      return  Colors.transparent;
-    }
-   }
-
-   static Color decrementButtonColor(int quantity){
-     if(quantity > 0){
-       return  mainBlue;
-     } else {
-       return mainGrey;
-     }
-   }
-
-  static Color incrementButtonColor(int quantity){
-    if(quantity < 10){
-      return  mainBlue;
-    } else {
-      return mainGrey;
-    }
+  static Color mainContainerBorder(int quantity) {
+    if (quantity > 0) return mainBlue;
+    return Colors.transparent;
   }
 
+  static Color decrementButtonColor(int quantity) {
+    if (quantity > 0) return mainBlue;
+    return mainGrey;
+  }
+
+  static Color incrementButtonColor(int quantity) {
+    if (quantity > 0) return mainBlue;
+    return mainGrey;
+  }
 }
